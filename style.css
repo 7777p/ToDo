@@ -1,6 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
+    /* background-color: #fff; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,14 +12,14 @@ body {
 .todo-container {
     background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     width: 300px;
-    padding: 20px;
+    padding: 50px;
     text-align: center;
 }
 
 .todo-container h1 {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     color: #181818;
 }
 
@@ -43,6 +44,8 @@ body {
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
+    /* justify-content: center;
+    align-items: center; */
 }
 
 #add-task-btn:hover {

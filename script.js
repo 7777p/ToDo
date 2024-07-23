@@ -41,7 +41,7 @@ function deleteAll(button){
    noMessage();
 }
 function filerTasks(){
-    const search = document.getElementById('search-task').value.toLowerCase();
+    const searchQuery = document.getElementById('search-task').value.toLowerCase();
     const filter = document.getElementById('filter-tasks').value;
     const tasks = document.querySelectorAll('#task-list li');
     let taskVisible = false;
@@ -52,12 +52,12 @@ function filerTasks(){
         let shouldShow = false;
 
         if (filter === 'all'){
-            shouldShow = taskText.includes(search);
+            shouldShow = taskText.includes(searchQuery);
         } else if(filter === 'active'){
             shouldShow = !isComleted && taskText.includes(searchQuery);
             
         }else if(filter === 'completed'){
-            shouldShow = isComleted && taskText.includes(search);
+            shouldShow = isComleted && taskText.includes(searchQuery);
         }
         task.style.display = shouldShow ? 'flex' : 'none';
         if(shouldShow) taskVisible = true;
