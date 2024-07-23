@@ -1,7 +1,8 @@
+document.addEventListener('DOMContentLoaded', loadTasks);
 document.getElementById('add-task-btn').addEventListener('click', addTask);
-document.getElementById('delete-all-btn').addEventListener('click', deleteAll);
-document.getElementById('search-task').addEventListener('input', filerTasks);
-document.getElementById('filter-tasks').addEventListener('change', filerTasks);
+document.getElementById('clear-tasks-btn').addEventListener('click', clearTasks);
+document.getElementById('search-task').addEventListener('input', filterTasks);
+document.getElementById('filter-tasks').addEventListener('change', filterTasks);
 
 function addTask() {
     const taskInput = document.getElementById('new-task');
@@ -11,18 +12,19 @@ function addTask() {
         const taskList = document.getElementById('task-list');
         const taskItem = document.createElement('li');
         taskItem.innerHTML = `
-            ${taskText}
+            <span>${taskText}</span>
             <button onclick="deleteTask(this)">Удалить</button>
         `;
-        taskItem.addEventListener('click', () => {
-            taskItem.classList.toggle('completed');
-            filerTasks();
+        taskItem.addEventListener('click', (e) => {
+            if (e.target.tagName !== 'BUTTON') {
+                taskItem.classList.toggle('completed');
+                saveTasks(); // Save tasks to localStorage when toggling completion
+            }
         });
 
         taskList.appendChild(taskItem);
         taskInput.value = '';
-        noMessage();
-        filerTasks();
+        saveTasks();
     } else {
         alert('Пожалуйста, введите задачу.');
     }
@@ -31,41 +33,74 @@ function addTask() {
 function deleteTask(button) {
     const taskItem = button.parentElement;
     taskItem.remove();
-    noMessage();
-    filterTasks();
+    saveTasks();
 }
 
-function deleteAll(button){
-   const taskList= document.getElementById('task-list');
-   taskList.innerHTML=" ";
-   noMessage();
+function clearTasks() {
+    const taskList = document.getElementById('task-list');
+    taskList.innerHTML = '';
+    saveTasks();
 }
-function filerTasks(){
+
+function filterTasks() {
     const searchQuery = document.getElementById('search-task').value.toLowerCase();
     const filter = document.getElementById('filter-tasks').value;
     const tasks = document.querySelectorAll('#task-list li');
     let taskVisible = false;
+
     tasks.forEach(task => {
-        const taskText = task.textContent.toLocaleLowerCase();
-        const isComleted = task.classList.contains('completed');
+        const taskText = task.querySelector('span').textContent.toLowerCase();
+        const isCompleted = task.classList.contains('completed');
 
         let shouldShow = false;
 
-        if (filter === 'all'){
+        if (filter === 'all') {
             shouldShow = taskText.includes(searchQuery);
-        } else if(filter === 'active'){
-            shouldShow = !isComleted && taskText.includes(searchQuery);
-            
-        }else if(filter === 'completed'){
-            shouldShow = isComleted && taskText.includes(searchQuery);
+        } else if (filter === 'active') {
+            shouldShow = !isCompleted && taskText.includes(searchQuery);
+        } else if (filter === 'completed') {
+            shouldShow = isCompleted && taskText.includes(searchQuery);
         }
-        task.style.display = shouldShow ? 'flex' : 'none';
-        if(shouldShow) taskVisible = true;
-    });
-    noMessage(taskVisible);
-}
-function noMessage(visible = false){
-    const message = document.getElementById('no-tasks')
-    message.style.display = visible ? 'none' : 'block';
 
+        task.style.display = shouldShow ? 'flex' : 'none';
+        if (shouldShow) taskVisible = true;
+    });
+
+}
+
+
+function saveTasks() {
+    const tasks = [];
+    const taskItems = document.querySelectorAll('#task-list li');
+    
+    taskItems.forEach(task => {
+        const text = task.querySelector('span').textContent;
+        const completed = task.classList.contains('completed');
+        tasks.push({ text, completed });
+    });
+
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+
+function loadTasks() {
+    const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    const taskList = document.getElementById('task-list');
+
+    tasks.forEach(task => {
+        const taskItem = document.createElement('li');
+        taskItem.innerHTML = `
+            <span>${task.text}</span>
+            <button onclick="deleteTask(this)">Удалить</button>
+        `;
+        if (task.completed) {
+            taskItem.classList.add('completed');
+        }
+        taskItem.addEventListener('click', (e) => {
+            if (e.target.tagName !== 'BUTTON') {
+                taskItem.classList.toggle('completed');
+                saveTasks();
+            }
+        });
+        taskList.appendChild(taskItem);
+    });
 }
