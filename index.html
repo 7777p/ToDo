@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="todo-container">
+        <h1>Todo List</h1>
+        <input type="text" id="new-task" placeholder="Введите новую задачу...">
+        <button id="add-task-btn">Добавить</button>
+        <button id="delete-all-btn">Удалить всё</button>
+        <div class = "filter-section">
+            <input type="text" id="search-task" placeholder="Поиск задачи"> 
+            <button id="search-button">Поиск</button>
+            <select id="filter-tasks">
+                <option value="completed">Выполненные</option>
+                <option value="active">В процессе выполнения</option>
+                <option value="all">Все задачи</option>
+            </select>
+        </div>
+        <h2>Текущие задачию:</h2>
+        <ul id="task-list"></ul>
+        <p id ="no-tasks">Текущих задач нет</p>
+    </div>
+   
+    <script src="script.js"></script>
+</body>
+</html>

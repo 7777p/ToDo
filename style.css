@@ -1,0 +1,115 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.todo-container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 20px;
+    text-align: center;
+}
+
+.todo-container h1 {
+    margin-bottom: 20px;
+    color: #181818;
+}
+
+.todo-container h2 {
+    margin-bottom: 10px;
+    color: #353232;
+}
+
+#new-task, #search-task {
+    width: calc((100%-22px));
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+#add-task-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #5cb85c;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#add-task-btn:hover {
+    background-color: #4cae4c;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    margin-top: 5px;
+    /* overflow: hidden; */
+   
+}
+
+li.completed {
+    text-decoration: line-through;
+    color: #888;
+}
+
+button {
+    background-color: #d9534f;
+    color: white;
+    border-radius: 4px;
+    padding: 5px 10px;
+    margin: 10px;
+    
+} 
+#search-task{
+    border: 1px solid #ddd
+}
+#filter-tasks{
+    width:calc(100%-22px);
+    padding:10px;
+    border:1px solid #ddd
+
+
+ 
+}
+#search-button {
+    background-color: #171817;
+    color: rgb(255, 255, 255);
+    border-radius: 4px;
+    padding: 5px 10px;
+    margin: 10px;
+    
+} 
+#search-button:hover {
+    background-color: #504e4e;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #c9302c;
+    cursor: pointer;
+}
+#no-tasks{
+    display:none;
+    color:#888
+    
+}
