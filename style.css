@@ -131,11 +131,11 @@ button:hover {
     
 }
 @media (max-width: 600px) {
-    body {
+    /* body {
         justify-content: flex-start;
         align-items: flex-start;
         height: auto;
-    }
+    } */
 
     .todo-container {
         width: 100%;
@@ -150,11 +150,11 @@ button:hover {
         font-size: 14px;
     }
 
-    #add-task-btn {
+    /* #add-task-btn {
         font-size: 14px;
-    }
+    } */
 
-    ul {
+    /* ul {
         max-height: 100vh;
     }
 
@@ -164,10 +164,10 @@ button:hover {
     }
 
     li span {
-        white-space: normal;
+        /* white-space: normal; */
         /* text-align: left; */
         font-size: 10px;
-    }
+    } */
 
     button {
         margin-top: 5px;
