@@ -131,11 +131,12 @@ button:hover {
     
 }
   @media (max-width: 600px) {  
-     /* body {
-        justify-content: flex-start;
+     body {
+        /* justify-content: flex-start;
         align-items: flex-start;
-        height: auto;
-    }  */
+        height: auto; */
+        overflow: hidden;
+    } 
 
      .todo-container {
         width: 100%;
