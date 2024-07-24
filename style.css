@@ -13,8 +13,10 @@ body {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    width: 300px;
+    width: 500px;
     padding: 50px;
+    display:flex;
+    flex-direction: column;
     text-align: center;
 }
 
@@ -29,11 +31,12 @@ body {
 }
 
 #new-task, #search-task {
-    width: calc((100%-22px));
+    width: 100%;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
     margin-bottom: 10px;
+    box-sizing: border-box;
 }
 
 #add-task-btn {
@@ -55,6 +58,11 @@ body {
 ul {
     list-style: none;
     padding: 0;
+    width: 100%;
+    max-height: 300px;
+    overflow-y: auto;
+    margin: 0;
+
 }
 
 li {
@@ -69,11 +77,21 @@ li {
     /* overflow: hidden; */
    
 }
+li span{
+    flex-grow: 1;
+    margin-right: 10px;
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
 
-li.completed {
+}
+li.completed span {
     text-decoration: line-through;
     color: #888;
 }
+/* li.completed button{
+    text-decoration: none;
+} */
 
 button {
     background-color: #d9534f;
@@ -84,6 +102,7 @@ button {
     
 } 
 #search-task{
+    width: 100%;
     border: 1px solid #ddd
 }
 #filter-tasks{

@@ -18,7 +18,7 @@ function addTask() {
         taskItem.addEventListener('click', (e) => {
             if (e.target.tagName !== 'BUTTON') {
                 taskItem.classList.toggle('completed');
-                saveTasks(); // Save tasks to localStorage when toggling completion
+                saveTasks();
             }
         });
 
@@ -43,10 +43,10 @@ function clearTasks() {
 }
 
 function filterTasks() {
-    const searchQuery = document.getElementById('search-task').value.toLowerCase();
+    const search = document.getElementById('search-task').value.toLowerCase();
     const filter = document.getElementById('filter-tasks').value;
     const tasks = document.querySelectorAll('#task-list li');
-    let taskVisible = false;
+    // let taskVisible = false;
 
     tasks.forEach(task => {
         const taskText = task.querySelector('span').textContent.toLowerCase();
@@ -55,15 +55,15 @@ function filterTasks() {
         let shouldShow = false;
 
         if (filter === 'all') {
-            shouldShow = taskText.includes(searchQuery);
+            shouldShow = taskText.includes(search);
         } else if (filter === 'active') {
-            shouldShow = !isCompleted && taskText.includes(searchQuery);
+            shouldShow = !isCompleted && taskText.includes(search);
         } else if (filter === 'completed') {
-            shouldShow = isCompleted && taskText.includes(searchQuery);
+            shouldShow = isCompleted && taskText.includes(search);
         }
 
         task.style.display = shouldShow ? 'flex' : 'none';
-        if (shouldShow) taskVisible = true;
+        // if (shouldShow) taskVisible = true;
     });
 
 }
@@ -83,7 +83,7 @@ function saveTasks() {
 }
 
 function loadTasks() {
-    const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    const tasks = JSON.parse(localStorage.getItem('tasks'));
     const taskList = document.getElementById('task-list');
 
     tasks.forEach(task => {
