@@ -135,4 +135,61 @@ button:hover {
     color:#888
     
 }
+/* Медиазапросы для адаптивности */
+@media (max-width: 600px) {
+    .todo-container {
+        padding: 15px;
+    }
+
+    #new-task, #search-task, #filter-tasks {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    #add-task-btn {
+        font-size: 14px;
+    }
+
+    li {
+        flex-direction: column;
+        padding: 10px 5px;
+    }
+
+    li span {
+        white-space: normal;
+        text-align: left;
+        font-size: 14px;
+    }
+
+    button {
+        margin-top: 5px;
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+    .todo-container {
+        padding: 30px;
+    }
+
+    #new-task, #search-task, #filter-tasks {
+        width: 100%;
+        font-size: 16px;
+    }
+
+    #add-task-btn {
+        font-size: 16px;
+    }
+
+    li span {
+        font-size: 16px;
+    }
+
+    button {
+        width: 100%;
+        font-size: 16px;
+    }
+}
 
