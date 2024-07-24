@@ -155,7 +155,7 @@ button:hover {
     }
 
     ul {
-        max-height: calc(100vh - 250px);
+        max-height: 100vh;
     }
 
     li {
@@ -166,7 +166,7 @@ button:hover {
     li span {
         white-space: normal;
         /* text-align: left; */
-        font-size: 14px;
+        font-size: 10px;
     }
 
     button {
