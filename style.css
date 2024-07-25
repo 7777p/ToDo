@@ -7,6 +7,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
+    overflow: hidden;
 }
 
 .todo-container {
@@ -14,11 +15,15 @@ body {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     width: 500px;
-    padding: 50px;
+    width: 100%;
+    max-width: 500px;
+    padding: 30px;
     display:flex;
     flex-direction: column;
+    gap: 5px; 
  
 }
+
 
 .todo-container h1 {
     margin-bottom: 30px;
@@ -34,6 +39,7 @@ body {
     border-radius: 4px;
     margin-bottom: 10px;
     box-sizing: border-box;
+    margin: 5 px;
 }
 
 #add-task-btn {
@@ -41,13 +47,24 @@ body {
     padding: 10px;
     background-color: #5cb85c;
     color: white;
+    /* border-radius: 4px; */
+    cursor: pointer;
+    font-size: 16px;
+    justify-content: center;
+    align-items: center;
+}
+#clear-tasks-btn{
+    width: 100%;
+    /* padding: 20 px; */
+    /* border: none; */
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
     /* justify-content: center;
     align-items: center; */
+    box-sizing: border-box;
+    /* margin: 100 px; */
 }
-
 #add-task-btn:hover {
     background-color: #4cae4c;
 }
@@ -58,7 +75,7 @@ ul {
     width: 100%;
     max-height: 300px;
     overflow-y: auto;
-    margin: 0;
+    padding-top: 5 px;
 
 }
 
@@ -69,8 +86,9 @@ li {
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 4px;
-    padding: 10px;
-    margin-top: 5px;
+    padding: 5px;
+    /* margin: 3px; */
+    /* margin-top: 5px; */
     /* overflow: hidden; */
    
 }
@@ -95,27 +113,37 @@ button {
     color: white;
     border-radius: 4px;
     padding: 5px 10px;
-    margin: 10px;
+    margin: 1px;
     
 } 
+/* button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}   */
 #search-task{
     width: 100%;
-    border: 1px solid #ddd
+    border: 1px solid #ddd;
+    margin-bottom: auto;
+
 }
 #filter-tasks{
     width:calc(100%-22px);
-    padding:10px;
-    border:1px solid #ddd
-
+    padding: 10px;
+    border:1px solid #ddd;
 }
-#search-button {
+
+/* #search-button {
     background-color: #171817;
     color: rgb(255, 255, 255);
     border-radius: 4px;
     padding: 5px 10px;
     margin: 10px;
     
-} 
+}  */
 #search-button:hover {
     background-color: #504e4e;
     cursor: pointer;
@@ -145,27 +173,5 @@ button:hover {
         border-radius: 0;
         padding: 10px;
     }
-
-    /* #new-task, #search-task, #filter-tasks {
-        width: 100%;
-        font-size: 14px;
-    }  */
-
-    /* #add-task-btn {
-        font-size: 14px;
-    } */
-
-    /* ul {
-        max-height: 100vh;
-    }
-
-    li {
-        flex-direction: column;
-        padding: 10px 5px;
-    }
-
-    li span {
-        /* white-space: normal; */
-        /* text-align: left;} */
       
 }
