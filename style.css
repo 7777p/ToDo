@@ -175,4 +175,24 @@ button:hover {
         padding: 10px;
     }
       
-}
+  }
+    header {
+        position: relative;
+        background: #a29d9d;
+        padding: auto ;
+        margin:auto;
+    }
+    .header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        z-index: -1;
+    }
+    nav__btn btn{
+
+    }
+ 
