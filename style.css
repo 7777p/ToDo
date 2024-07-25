@@ -164,6 +164,7 @@ button:hover {
         align-items: flex-start;
         height: auto; */
         overflow: hidden;
+        padding: 10px;
     } 
 
      .todo-container {
